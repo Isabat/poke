@@ -14,6 +14,7 @@ def random_pokemon():
     }
 def run():
     n=1
+    play = 'y'
     while n<4:
         print('Round: ', n)
         my_pokemon1 = random_pokemon()
@@ -48,17 +49,31 @@ def run():
         opponent_stat = opponent_pokemon[stat_choice]
 
         if my_stat > opponent_stat:
-                print(f'You Win! Your number is {my_stat}, your opponent number is {opponent_stat}')
+                print(f'You Win! Your number was {my_stat}, your opponent number was {opponent_stat}')
                 n = n + 1
         elif my_stat < opponent_stat:
-                print(f'You Lose! Your number is {my_stat}, your opponent number is {opponent_stat}')
+                print(f'You Lose! Your number was {my_stat}, your opponent number was {opponent_stat}')
                 n = n + 1
         elif ValueError:
             print('Error, check your inputs')
             continue
+            
         else:
-            print(f'Draw! Your number is {my_stat}, your opponent number is {opponent_stat}')
+            print(f'Draw! Your number was {my_stat}, your opponent number was {opponent_stat}')
             n = n + 1
+                while True:
+                    print('Do you want to play again? y/n')
+                    play = input()
+                    if play == 'n':
+                        print('Okay, goodbye :)')
+                        break
+                    elif play == 'y':
+                        print('Okay, another round!')
+                        break
+                    else:
+                        print('Error, check you inputs')
+                        continue
+ 
 
 
 run()
