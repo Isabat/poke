@@ -20,7 +20,7 @@ def run():
 
     while True:
         while True:
-            print('You have {}, {} and {} in your deck which pokemon would you like? (1,2 or 3?)'.format(my_pokemon1['name'], my_pokemon2['name'], my_pokemon3['name']))
+            print(f'In your deck, there are: {my_pokemon1},\n {my_pokemon2}\n and {my_pokemon3}.\n Which pokemon would you like? (1,2 or 3?)')
             my_choice = input()
 
             if my_choice =='1':
@@ -49,14 +49,14 @@ def run():
         opponent_stat = opponent_pokemon[stat_choice]
 
         if my_stat > opponent_stat:
-            print('You Win!')
+                print(f'You Win! Your number is {my_stat}, your opponent number is {opponent_stat}')
         elif my_stat < opponent_stat:
-            print('You Lose!')
+                print(f'You Lose! Your number is {my_stat}, your opponent number is {opponent_stat}')
         elif ValueError:
             print('Error, check your inputs')
             continue
         else:
-            print('Draw!')
+            print(f'Draw! Your number is {my_stat}, your opponent number is {opponent_stat}')
 
         break
 
