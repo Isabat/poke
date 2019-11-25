@@ -1,6 +1,7 @@
 import random
 import requests
 
+
 def random_pokemon():
     pokemon_number = random.randint(1, 151)
     url = "https://pokeapi.co/api/v2/pokemon/{}/".format(pokemon_number)
@@ -12,26 +13,29 @@ def random_pokemon():
         'height': pokemon['height'],
         'weight': pokemon['weight'],
     }
+
+
 def run():
-    n=1
+    n = 1
     play = 'y'
-    while n<4:
+    while n < 4:
         print('Round: ', n)
         my_pokemon1 = random_pokemon()
         my_pokemon2 = random_pokemon()
         my_pokemon3 = random_pokemon()
-        
+
         while True:
-            print(f'In your deck, there are: {my_pokemon1},\n {my_pokemon2}\n and {my_pokemon3}.\n Which pokemon would you like? (1,2 or 3?)')
+            print(
+                f'In your deck, there are: \n{my_pokemon1["name"]}, its Id is {my_pokemon1["id"]}, its height is {my_pokemon1["height"]}, and its weight is {my_pokemon1["weight"]},\n {my_pokemon2["name"]}, its Id is {my_pokemon2["id"]}, its height is {my_pokemon2["height"]}, and its weight is {my_pokemon2["weight"]},\n lastly, you have {my_pokemon3["name"]}, its Id is {my_pokemon3["id"]}, its height is {my_pokemon3["height"]}, and its weight is {my_pokemon3["weight"]}.\n Which pokemon would you like? (1,2 or 3?)')
             my_choice = input()
 
-            if my_choice =='1':
+            if my_choice == '1':
                 my_pokemon = my_pokemon1
                 break
-            elif my_choice =='2':
+            elif my_choice == '2':
                 my_pokemon = my_pokemon2
                 break
-            elif my_choice =='3':
+            elif my_choice == '3':
                 my_pokemon = my_pokemon3
                 break
             else:
@@ -39,7 +43,7 @@ def run():
                 continue
 
         print('You chose {}'.format(my_pokemon['name']))
-  
+
         stat_choice = input('Which stat do you want to use? (id, height, weight) ')
 
         opponent_pokemon = random_pokemon()
@@ -49,31 +53,30 @@ def run():
         opponent_stat = opponent_pokemon[stat_choice]
 
         if my_stat > opponent_stat:
-                print(f'You Win! Your number was {my_stat}, your opponent number was {opponent_stat}')
-                n = n + 1
+            print(f'You Win! Your number was {my_stat}, your opponent number was {opponent_stat}')
+            n = n + 1
         elif my_stat < opponent_stat:
-                print(f'You Lose! Your number was {my_stat}, your opponent number was {opponent_stat}')
-                n = n + 1
+            print(f'You Lose! Your number was {my_stat}, your opponent number was {opponent_stat}')
+            n = n + 1
         elif ValueError:
             print('Error, check your inputs')
             continue
-            
+
         else:
             print(f'Draw! Your number was {my_stat}, your opponent number was {opponent_stat}')
             n = n + 1
-                while True:
-                    print('Do you want to play again? y/n')
-                    play = input()
-                    if play == 'n':
-                        print('Okay, goodbye :)')
-                        break
-                    elif play == 'y':
-                        print('Okay, another round!')
-                        break
-                    else:
-                        print('Error, check you inputs')
-                        continue
- 
+            while True:
+                print('Do you want to play again? y/n')
+                play = input()
+                if play == 'n':
+                    print('Okay, goodbye :)')
+                    break
+                elif play == 'y':
+                    print('Okay, another round!')
+                    break
+                else:
+                    print('Error, check you inputs')
+                    continue
 
 
 run()
