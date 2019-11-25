@@ -13,12 +13,13 @@ def random_pokemon():
         'weight': pokemon['weight'],
     }
 def run():
-    #
-    my_pokemon1 = random_pokemon()
-    my_pokemon2 = random_pokemon()
-    my_pokemon3 = random_pokemon()
-
-    while True:
+    n=1
+    while n<4:
+        print('Round: ', n)
+        my_pokemon1 = random_pokemon()
+        my_pokemon2 = random_pokemon()
+        my_pokemon3 = random_pokemon()
+        
         while True:
             print(f'In your deck, there are: {my_pokemon1},\n {my_pokemon2}\n and {my_pokemon3}.\n Which pokemon would you like? (1,2 or 3?)')
             my_choice = input()
@@ -36,10 +37,8 @@ def run():
                 print('Error, check your inputs')
                 continue
 
-
-
         print('You chose {}'.format(my_pokemon['name']))
-    #
+  
         stat_choice = input('Which stat do you want to use? (id, height, weight) ')
 
         opponent_pokemon = random_pokemon()
@@ -50,14 +49,16 @@ def run():
 
         if my_stat > opponent_stat:
                 print(f'You Win! Your number is {my_stat}, your opponent number is {opponent_stat}')
+                n = n + 1
         elif my_stat < opponent_stat:
                 print(f'You Lose! Your number is {my_stat}, your opponent number is {opponent_stat}')
+                n = n + 1
         elif ValueError:
             print('Error, check your inputs')
             continue
         else:
             print(f'Draw! Your number is {my_stat}, your opponent number is {opponent_stat}')
+            n = n + 1
 
-        break
 
 run()
