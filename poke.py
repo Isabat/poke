@@ -93,6 +93,12 @@ def run():
             else:
                 print('Error, check you inputs')
                 continue
+                
+    with open('scores.txt', 'r') as text_file:
+        scores = text_file.read()
+    scores = scores + str(score) + '\n'
+    with open('scores.txt', 'w+') as text_file:
+        text_file.write(scores)
 
 
 run()
