@@ -29,7 +29,7 @@ def run():
 
         while True:
             print(
-                f'In your deck, there are: \n{my_pokemon1["name"]}, its Id is {my_pokemon1["id"]}, its height is {my_pokemon1["height"]}, and its weight is {my_pokemon1["weight"]},\n {my_pokemon2["name"]}, its Id is {my_pokemon2["id"]}, its height is {my_pokemon2["height"]}, and its weight is {my_pokemon2["weight"]},\n lastly, you have {my_pokemon3["name"]}, its Id is {my_pokemon3["id"]}, its height is {my_pokemon3["height"]}, and its weight is {my_pokemon3["weight"]}.\n Which pokemon would you like? (1,2 or 3?)')
+                f'In your deck, there are: \n{my_pokemon1["name"]}, Id: {my_pokemon1["id"]}, Height: {my_pokemon1["height"]}, weight: {my_pokemon1["weight"]},\n {my_pokemon2["name"]}, Id:  {my_pokemon2["id"]}, Height: {my_pokemon2["height"]}, Weight: {my_pokemon2["weight"]},\n lastly, you have {my_pokemon3["name"]}, Id: {my_pokemon3["id"]}, Height: {my_pokemon3["height"]}, Weight: {my_pokemon3["weight"]}.\n Which pokemon would you like? (1,2 or 3?)')
             my_choice = input()
 
             if my_choice == '1':
@@ -84,7 +84,7 @@ def run():
             print('Do you want to play again? y/n')
             play = input()
             if play == 'n':
-                print('Okay, goodbye :)')
+                print('Okay, goodbye {} :)'.format(name))
                 print('Final win streak: ', score)
                 break
             elif play == 'y':
