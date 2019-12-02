@@ -16,9 +16,12 @@ def random_pokemon():
 
 
 def run():
+    name = input('Enter username')
     n = 1
     play = 'y'
-    while n < 4:
+    score = 0
+    
+    while play == 'y':
         print('Round: ', n)
         my_pokemon1 = random_pokemon()
         my_pokemon2 = random_pokemon()
@@ -44,7 +47,13 @@ def run():
 
         print('You chose {}'.format(my_pokemon['name']))
 
-        stat_choice = input('Which stat do you want to use? (id, height, weight) ')
+        while True:
+            stat_choice = input('Which stat do you want to use? (id, height, weight) ')
+            if stat_choice == 'id' or stat_choice == 'height' or stat_choice == 'weight':
+                break
+            else:
+                print('Error, check your inputs')
+                continue
 
         opponent_pokemon = random_pokemon()
         print('The opponent chose {}'.format(opponent_pokemon['name']))
@@ -55,9 +64,13 @@ def run():
         if my_stat > opponent_stat:
             print(f'You Win! Your number was {my_stat}, your opponent number was {opponent_stat}')
             n = n + 1
+            score = score + 1
+                
         elif my_stat < opponent_stat:
             print(f'You Lose! Your number was {my_stat}, your opponent number was {opponent_stat}')
             n = n + 1
+            score = 0
+                
         elif ValueError:
             print('Error, check your inputs')
             continue
@@ -65,18 +78,21 @@ def run():
         else:
             print(f'Draw! Your number was {my_stat}, your opponent number was {opponent_stat}')
             n = n + 1
-            while True:
-                print('Do you want to play again? y/n')
-                play = input()
-                if play == 'n':
-                    print('Okay, goodbye :)')
-                    break
-                elif play == 'y':
-                    print('Okay, another round!')
-                    break
-                else:
-                    print('Error, check you inputs')
-                    continue
+                
+        while True:
+            print('Your win streak is: ', score)
+            print('Do you want to play again? y/n')
+            play = input()
+            if play == 'n':
+                print('Okay, goodbye :)')
+                print('Final win streak: ', score)
+                break
+            elif play == 'y':
+                print('Okay, another round!')
+                break
+            else:
+                print('Error, check you inputs')
+                continue
 
 
 run()
